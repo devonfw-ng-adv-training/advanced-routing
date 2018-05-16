@@ -1,0 +1,194 @@
+@import "~@angular/material/theming";
+
+// Define a custom typography config that overrides the font-family
+$app-typography: mat-typography-config(
+  $font-family: 'Ubuntu, Verdana'
+);
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($app-typography);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+
+$app-vibrant-blue-palette: (
+  50 : #e3f6fb,
+  100 : #b8e8f4,
+  200 : #89d9ed,
+  300 : #59cae6,
+  400 : #36bee0,
+  500 : #12b3db,
+  600 : #10acd7,
+  700 : #0da3d2,
+  800 : #0a9acd,
+  900 : #058bc4,
+  A100 : #edf9ff,
+  A200 : #bae8ff,
+  A400 : #87d7ff,
+  A700 : #6eceff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$app-tech-red-palette: (
+  50 : #ffe6ea,
+  100 : #ffc1c9,
+  200 : #ff98a6,
+  300 : #ff6e82,
+  400 : #ff4f67,
+  500 : #ff304c,
+  600 : #ff2b45,
+  700 : #ff243c,
+  800 : #ff1e33,
+  900 : #ff1324,
+  A100 : #ffffff,
+  A200 : #fffafa,
+  A400 : #ffc7ca,
+  A700 : #ffadb2,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$app-cg-blue-palette: (
+  50 : #e0eef5,
+  100 : #b3d4e6,
+  200 : #80b8d6,
+  300 : #4d9bc6,
+  400 : #2685b9,
+  500 : #0070ad,
+  600 : #0068a6,
+  700 : #005d9c,
+  800 : #005393,
+  900 : #004183,
+  A100 : #b0d1ff,
+  A200 : #7db3ff,
+  A400 : #4a96ff,
+  A700 : #3087ff,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #ffffff,
+  )
+);
+
+$app-zest-green-palette: (
+  50 : #f2fce3,
+  100 : #dff8b9,
+  200 : #caf38b,
+  300 : #b5ee5c,
+  400 : #a5ea39,
+  500 : #95e616,
+  600 : #8de313,
+  700 : #82df10,
+  800 : #78db0c,
+  900 : #67d506,
+  A100 : #fefffd,
+  A200 : #e0ffca,
+  A400 : #c3ff97,
+  A700 : #b4ff7e,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$app-deep-purple-palette: (
+  50 : #e6e2e7,
+  100 : #bfb6c4,
+  200 : #95859d,
+  300 : #6b5476,
+  400 : #4b2f58,
+  500 : #2b0a3b,
+  600 : #260935,
+  700 : #20072d,
+  800 : #1a0526,
+  900 : #100319,
+  A100 : #b258ff,
+  A200 : #9a25ff,
+  A400 : #8200f1,
+  A700 : #7400d7,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$app-primary: mat-palette($app-vibrant-blue-palette);
+$app-accent: mat-palette($app-zest-green-palette);
+
+// The warn palette is optional (defaults to red).
+$app-warn: mat-palette($app-tech-red-palette);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);

@@ -1,0 +1,11 @@
+<ul class="book-card-container">
+  <li *ngFor="let book of books$ | async">
+    <mat-card class="book-card">
+      <mat-card-title-group>
+        <mat-card-title>{{book.title}}</mat-card-title>
+        <img class="book-card-img" [src]="'http://covers.openlibrary.org/b/isbn/' + book.isbn + '-S.jpg'" />
+        <mat-card-subtitle>{{book.author}}</mat-card-subtitle>
+      </mat-card-title-group>
+    </mat-card>
+  </li>
+</ul>
