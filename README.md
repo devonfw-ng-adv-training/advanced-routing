@@ -61,12 +61,12 @@ npm install -g @angular/cli
 
 Clone this repository and go to the `0-start` branch:
 ```
-git clone https://github.com/devonfw-ng-adv-training/ng-universal.git -b 0-start
+git clone https://github.com/devonfw-ng-adv-training/pwa.git -b 0-start
 ```
 
 Install dependencies using [npm](https://www.npmjs.com/):
 ```
-cd ng-universal
+cd pwa
 npm install
 ```
 This may take several minutes...
