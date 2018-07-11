@@ -51,10 +51,10 @@ npm install -g npm@5.6.0
 
 #### Angular CLI
 
-Having [npm](https://www.npmjs.com/) installed you can install [Angular CLI](https://github.com/angular/angular-cli) like this:
+Having [npm](https://www.npmjs.com/) installed you can install [Angular CLI](https://github.com/angular/angular-cli). We have been using the `1.7.4` version:
 
 ```
-npm install -g @angular/cli
+npm install -g @angular/cli@1.7.4
 ```
 
 ### Clone, install dependencies and run
