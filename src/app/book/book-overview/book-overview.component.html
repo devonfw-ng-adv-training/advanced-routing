@@ -1,5 +1,5 @@
 <ul class="book-card-container">
-  <li *ngFor="let book of books$ | async">
+  <li *ngFor="let book of books$ | async" (click)="showBook(book)">
     <mat-card class="book-card">
       <mat-card-title-group>
         <mat-card-title>{{book.title}}</mat-card-title>
