@@ -22,4 +22,8 @@ export class BookOverviewComponent implements OnInit {
     this.router.navigate(['/book', book.id]);
   }
 
+  newBook(): any {
+    this.router.navigate(['/book']);
+  }
+
 }

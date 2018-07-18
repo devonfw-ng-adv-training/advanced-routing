@@ -17,3 +17,9 @@ ul.book-card-container {
     }
   }
 }
+
+button.floating-button {
+  position: fixed;
+    bottom: 5%;
+    right: 5%;
+}

@@ -27,7 +27,7 @@ export class BookDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.bookForm = this.formBuilder.group({
-      id: ['', [Validators.required, Validators.maxLength(20)]],
+      id: [''],
       author: ['', [Validators.required, Validators.maxLength(20)]],
       title: ['', [Validators.required, Validators.maxLength(50)]],
       isbn: ['', [Validators.required, Validators.maxLength(13), Validators.pattern('[0-9]*')]]
@@ -53,7 +53,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   cancelForm(): void {
-    console.log('canceling');
     this.router.navigate(['/books']);
   }
 }
