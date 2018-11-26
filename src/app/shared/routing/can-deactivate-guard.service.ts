@@ -8,7 +8,6 @@ import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable()
 export class CanDeactivateGuard implements CanDeactivate<DirtyAware> {
-
   constructor(public dialog: MatDialog) {}
 
   canDeactivate(component: DirtyAware): Observable<boolean> | boolean {
@@ -22,7 +21,7 @@ export class CanDeactivateGuard implements CanDeactivate<DirtyAware> {
         if (result) {
           return true;
         }
-          return false;
+        return false;
       })
     );
   }

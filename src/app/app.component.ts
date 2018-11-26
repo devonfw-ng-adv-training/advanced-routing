@@ -1,3 +1,4 @@
+import { SecurityService } from './shared/routing/security.service';
 import { Component } from '@angular/core';
 import {
   RouterEvent,
@@ -16,7 +17,10 @@ import {
 export class AppComponent {
   isLoadingData = false;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private securityService: SecurityService
+  ) {
     router.events.subscribe((routerEvent: RouterEvent) => {
       this.checkRouterEvent(routerEvent);
     });
@@ -33,5 +37,10 @@ export class AppComponent {
     ) {
       this.isLoadingData = false;
     }
+  }
+
+  slideUpdate(e: Event) {
+    console.log('Changing App Roles');
+    this.securityService.changeRoleTo(e['checked']);
   }
 }

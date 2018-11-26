@@ -13,6 +13,8 @@ import { BookService } from '../book/book.service';
 import { HomeComponent } from './home/home.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ActivateIfUserAuthorized } from './routing/activate-if-user-authorized.guard';
+import { SecurityService } from './routing/security.service';
 
 @NgModule({
   imports: [
@@ -44,7 +46,7 @@ export class SharedModule {
     return {
       ngModule: SharedModule,
       // put here providers of singleton services from ALL modules including this shared one
-      providers: [BookService]
+      providers: [BookService, ActivateIfUserAuthorized, SecurityService]
     };
   }
 }

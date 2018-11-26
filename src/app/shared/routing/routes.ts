@@ -4,15 +4,19 @@ import { BookOverviewComponent } from '../../book/book-overview/book-overview.co
 import { HomeComponent } from '../home/home.component';
 import { BookDetailsComponent } from './../../book/book-details/book-details.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { AuthorizedRoutes } from './authorized-route';
+import { Role } from './role';
 
-export const routes: Routes = [
+export const routes: AuthorizedRoutes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    permitAll: true
   },
   {
     path: 'books',
-    component: BookOverviewComponent
+    component: BookOverviewComponent,
+    permitAll: true
   },
   {
     path: 'book/:id',
@@ -20,12 +24,14 @@ export const routes: Routes = [
     resolve: {
       book: BookDetailsResolver
     },
-    canDeactivate: [CanDeactivateGuard]
+    canDeactivate: [CanDeactivateGuard],
+    permitAll: true
   },
   {
     path: 'book',
     component: BookDetailsComponent,
-    canDeactivate: [CanDeactivateGuard]
+    canDeactivate: [CanDeactivateGuard],
+    authorizedRoles: [Role.ADMIN]
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: '', redirectTo: '/home', pathMatch: 'full', permitAll: true }
 ];
