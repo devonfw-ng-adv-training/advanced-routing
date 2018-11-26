@@ -1,16 +1,15 @@
-import { BookService } from "./../book.service";
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router, ActivatedRoute } from "@angular/router";
-import { Book } from "../book";
+import { BookService } from './../book.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Book } from '../book';
 
 @Component({
-  selector: "app-book-details",
-  templateUrl: "./book-details.component.html",
-  styleUrls: ["./book-details.component.scss"]
+  selector: 'app-book-details',
+  templateUrl: './book-details.component.html',
+  styleUrls: ['./book-details.component.scss']
 })
 export class BookDetailsComponent implements OnInit {
-
   book: Book;
   submitted: boolean;
   bookForm: FormGroup;
@@ -22,7 +21,6 @@ export class BookDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.book = new Book();
-
   }
 
   ngOnInit() {
@@ -30,10 +28,17 @@ export class BookDetailsComponent implements OnInit {
       id: [''],
       author: ['', [Validators.required, Validators.maxLength(20)]],
       title: ['', [Validators.required, Validators.maxLength(50)]],
-      isbn: ['', [Validators.required, Validators.maxLength(13), Validators.pattern('[0-9]*')]]
+      isbn: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(13),
+          Validators.pattern('[0-9]*')
+        ]
+      ]
     });
 
-    this.route.data.subscribe( (data: {book: Book})  => {
+    this.route.data.subscribe((data: { book: Book }) => {
       if (data.book) {
         this.book = data.book;
       }

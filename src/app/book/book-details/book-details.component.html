@@ -1,39 +1,46 @@
 <form [formGroup]="bookForm" (submit)="apply()" [class.ng-submit]="submitted">
   <div class="form-group row">
     <mat-form-field class="example-container">
-      <input matInput placeholder="ISBN" formControlName="isbn" >
+      <input matInput placeholder="ISBN" formControlName="isbn" />
       <mat-error *ngIf="bookForm.get('isbn').hasError('required')">
-          ISBN is <strong>required</strong>
+        ISBN is <strong>required</strong>
       </mat-error>
       <mat-error *ngIf="bookForm.get('isbn').hasError('pattern')">
-          ISBN is <strong>invalid</strong>
+        ISBN is <strong>invalid</strong>
       </mat-error>
     </mat-form-field>
   </div>
   <div class="form-group row">
-      <mat-form-field class="example-container">
-          <input matInput placeholder="Author" formControlName="author">
-          <mat-error *ngIf="bookForm.get('author').hasError('required')">
-              Author is <strong>required</strong>
-          </mat-error>
-          <mat-error *ngIf="bookForm.get('author').hasError('maxlength')">
-              Author is too long
-          </mat-error>
-        </mat-form-field>
+    <mat-form-field class="example-container">
+      <input matInput placeholder="Author" formControlName="author" />
+      <mat-error *ngIf="bookForm.get('author').hasError('required')">
+        Author is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="bookForm.get('author').hasError('maxlength')">
+        Author is too long
+      </mat-error>
+    </mat-form-field>
   </div>
   <div class="form-group row">
-      <mat-form-field class="example-container">
-          <input matInput placeholder="Title" formControlName="title">
-          <mat-error *ngIf="bookForm.get('title').hasError('required')">
-              Title is <strong>required</strong>
-          </mat-error>
-          <mat-error *ngIf="bookForm.get('title').hasError('maxlength')">
-              Title is too long
-          </mat-error>
-        </mat-form-field>
+    <mat-form-field class="example-container">
+      <input matInput placeholder="Title" formControlName="title" />
+      <mat-error *ngIf="bookForm.get('title').hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="bookForm.get('title').hasError('maxlength')">
+        Title is too long
+      </mat-error>
+    </mat-form-field>
   </div>
   <div class="form-group row">
-      <button mat-raised-button color="primary" type="submit" >Apply</button>
-      <button mat-stroked-button color="warn" type="button" (click)="cancelForm()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Apply</button>
+    <button
+      mat-stroked-button
+      color="warn"
+      type="button"
+      (click)="cancelForm()"
+    >
+      Cancel
+    </button>
   </div>
 </form>

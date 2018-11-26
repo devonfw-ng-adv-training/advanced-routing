@@ -3,5 +3,4 @@ export class Book {
   author: string = null;
   title: string = null;
   isbn: string = null;
-
 }
