@@ -1,8 +1,9 @@
-import { BookDetailsComponent } from './../../book/book-details/book-details.component';
-import { HomeComponent } from '../home/home.component';
 import { Routes } from '@angular/router';
-import { BookOverviewComponent } from '../../book/book-overview/book-overview.component';
 import { BookDetailsResolver } from '../../book/book-details/book-details.resolver';
+import { BookOverviewComponent } from '../../book/book-overview/book-overview.component';
+import { HomeComponent } from '../home/home.component';
+import { BookDetailsComponent } from './../../book/book-details/book-details.component';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 export const routes: Routes = [
   {
@@ -18,11 +19,13 @@ export const routes: Routes = [
     component: BookDetailsComponent,
     resolve: {
       book: BookDetailsResolver
-    }
+    },
+    canDeactivate: [CanDeactivateGuard]
   },
   {
     path: 'book',
-    component: BookDetailsComponent
+    component: BookDetailsComponent,
+    canDeactivate: [CanDeactivateGuard]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

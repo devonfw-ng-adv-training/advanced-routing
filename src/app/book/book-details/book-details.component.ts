@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Book } from '../book';
+import { DirtyAware } from '../../shared/routing/dirty-aware';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
   styleUrls: ['./book-details.component.scss']
 })
-export class BookDetailsComponent implements OnInit {
+export class BookDetailsComponent implements OnInit, DirtyAware {
   book: Book;
   submitted: boolean;
   bookForm: FormGroup;
@@ -21,6 +22,10 @@ export class BookDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) {
     this.book = new Book();
+  }
+
+  isDirty(): boolean {
+    return this.bookForm.dirty && !this.submitted;
   }
 
   ngOnInit() {

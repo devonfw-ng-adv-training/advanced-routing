@@ -1,5 +1,5 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import {
   MatButtonModule,
   MatCardModule,
@@ -8,11 +8,11 @@ import {
   MatSidenavModule,
   MatToolbarModule
 } from '@angular/material';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { BookService } from '../book/book.service';
+import { HomeComponent } from './home/home.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   imports: [
