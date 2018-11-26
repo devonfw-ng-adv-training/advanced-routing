@@ -5,7 +5,8 @@
       <app-navigation></app-navigation>
     </mat-sidenav>
     <mat-sidenav-content class="app-main-content">
-      <router-outlet></router-outlet>
+      <div class="loader" *ngIf="isLoadingData"></div>
+      <router-outlet *ngIf="!isLoadingData"></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>

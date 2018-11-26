@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Book } from './book';
 import { HttpClient } from '@angular/common/http';
+import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class BookService {
@@ -14,7 +15,9 @@ export class BookService {
   }
 
   findOne(id: number): Observable<Book> {
-    return this.http.get<Book>(BookService.BOOK_URI + '/' + id);
+    return this.http
+      .get<Book>(BookService.BOOK_URI + '/' + id)
+      .pipe(delay(1000));
   }
 
   save(bookToSave: Book): Observable<Book> {
